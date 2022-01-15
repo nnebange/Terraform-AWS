@@ -54,7 +54,7 @@ module "compute" {
   instance_type   = "t3.micro"
   vol_size        = "20"
   public_key_path = "/home/ubuntu/.ssh/sshkey.pub"
-  key_name        = "sshkey"
+  key_name        = "sshkey1"
   dbname          = var.dbname
   dbuser          = var.dbuser
   dbpassword      = var.dbpassword
