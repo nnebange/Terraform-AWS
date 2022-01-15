@@ -14,6 +14,9 @@ data "aws_ami" "server_ami" {
 resource "random_id" "hiba_node_id" {
   byte_length = 2
   count       = var.instance_count
+   keepers = {
+    key_name = var.key_name
+  }
 }
 
 # ssh key pair
