@@ -46,6 +46,17 @@ module "loadbalancing" {
   listener_protocol       = "HTTP"
 }
 
+module "compute" {
+  source          = "./compute"
+  public_sg       = module.networking.public_sg
+  public_subnets  = module.networking.public_subnets
+  instance_count  = 1
+  instance_type   = "t3.micro"
+  vol_size        = "20"
+  #public_key_path = "/home/ubuntu/.ssh/sshkey.pub"
+  #key_name        = "sshkey"
+}
+
 #1 -this will create a S3 bucket in AWS
 resource "aws_s3_bucket" "terraform_state_s3" {
   #make sure you give unique bucket name

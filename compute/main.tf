@@ -16,6 +16,10 @@ resource "random_id" "hiba_node_id" {
   count       = var.instance_count
 }
 
+# ssh key pair
+
+
+
 
 resource "aws_instance" "hiba_node" {
   count         = var.instance_count
@@ -26,7 +30,7 @@ resource "aws_instance" "hiba_node" {
     Name = "hiba_node-${random_id.hiba_node_id[count.index].dec}"
   }
 
-  # key_name               = ""
+  #key_name               = aws_key_pair.ssh_key.id
   vpc_security_group_ids = [var.public_sg]
   subnet_id              = var.public_subnets[count.index]
   # user_data              = ""
