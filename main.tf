@@ -53,8 +53,8 @@ module "compute" {
   instance_count  = 1
   instance_type   = "t3.micro"
   vol_size        = "20"
-  #public_key_path = "/home/ubuntu/.ssh/sshkey.pub"
-  #key_name        = "sshkey"
+  public_key_path = "/home/ubuntu/.ssh/sshkey.pub"
+  key_name        = "sshkey"
 }
 
 #1 -this will create a S3 bucket in AWS
