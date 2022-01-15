@@ -55,7 +55,14 @@ module "compute" {
   vol_size        = "20"
   public_key_path = "/home/ubuntu/.ssh/sshkey.pub"
   key_name        = "sshkey"
+  dbname          = var.dbname
+  dbuser          = var.dbuser
+  dbpassword      = var.dbpassword
+  db_endpoint     = module.database.db_endpoint
+  user_data_path  = "${path.root}/userdata.tpl"
 }
+
+
 
 #1 -this will create a S3 bucket in AWS
 resource "aws_s3_bucket" "terraform_state_s3" {
