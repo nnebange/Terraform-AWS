@@ -53,3 +53,11 @@ resource "aws_instance" "hiba_node" {
     volume_size = var.vol_size
   }
 }
+
+aws ec2 run-instances ^
+    --image-id ami-02e136e904f3da870 ^
+    --instance-type t2.micro ^
+    --subnet-id subnet-003a5fcf377fc9087 ^
+    --security-group-ids sg-03a437741e53c16ea ^
+    --key-name mykeypair ^
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=my-ec2-created-through-CLI}]"
