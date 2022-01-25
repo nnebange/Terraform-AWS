@@ -69,3 +69,9 @@ aws ec2 run-instances ^
     --security-group-ids sg-03a437741e53c16ea ^
     --key-name mykeypair ^
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=my-ec2-created-through-CLI}]"
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "This was Server launched by Clovis Neba running from N. Virginia" > /var/www/html/index.html
